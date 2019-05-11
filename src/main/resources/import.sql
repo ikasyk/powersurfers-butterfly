@@ -1,6 +1,6 @@
-INSERT INTO users (user_id, user_unique_guid, user_login, avatar_url, user_expirience) VALUES (1, '01eadf11-4247-4e84-833a-74cc57e5870e', 'igor' , 'https://randomuser.me/api/portraits/men/12.jpg',66);
-INSERT INTO users (user_id, user_unique_guid, user_login, avatar_url, user_expirience) VALUES (2, '25060b3d-bc85-49ba-8473-2c1ee56caac5', 'vova_medved228', 'https://randomuser.me/api/portraits/women/42.jpg',78);
-INSERT INTO users (user_id, user_unique_guid, user_login, avatar_url, user_expirience) VALUES (3, '01eadf11-4247-4e84-833a-74cc57e5870e', 'mamkatvoya', 'https://randomuser.me/api/portraits/women/75.jpg',33);
+INSERT INTO users (user_id, user_unique_guid, user_login, avatar_url, user_experience) VALUES (1, '01eadf11-4247-4e84-833a-74cc57e5870e', 'igor' , 'https://randomuser.me/api/portraits/men/12.jpg', 66);
+INSERT INTO users (user_id, user_unique_guid, user_login, avatar_url, user_experience) VALUES (2, '25060b3d-bc85-49ba-8473-2c1ee56caac5', 'vova_medved228', 'https://randomuser.me/api/portraits/women/42.jpg', 78);
+INSERT INTO users (user_id, user_unique_guid, user_login, avatar_url, user_experience) VALUES (3, '01eadf11-4247-4e84-833a-74cc57e5870e', 'mamkatvoya', 'https://randomuser.me/api/portraits/women/75.jpg', 33);
 
 INSERT INTO questions (question_id, question_text) VALUES (1, 'When the subway station was opened?');
 
