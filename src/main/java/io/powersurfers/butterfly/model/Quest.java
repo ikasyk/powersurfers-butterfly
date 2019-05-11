@@ -5,12 +5,9 @@ import io.powersurfers.butterfly.dao.jsonview.Views;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GeneratorType;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Table(name = "quests")
@@ -19,11 +16,10 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Quest {
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "quest_id")
     @JsonView(Views.QuestField.class)
-    private UUID id;
+    private Integer id;
 
     @Column(name = "quest_title")
     @JsonView(Views.QuestField.class)

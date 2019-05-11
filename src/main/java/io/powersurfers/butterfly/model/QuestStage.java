@@ -3,9 +3,9 @@ package io.powersurfers.butterfly.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "quest_stages")
@@ -14,10 +14,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class QuestStage {
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "quest_stage_id")
-    private String id;
+    private Integer id;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "quest_id")
@@ -33,5 +32,12 @@ public class QuestStage {
     @JoinColumn(name = "quest_question_id")
     private Question question;
 
-
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(
+            name = "quest_stage_to_stage",
+            joinColumns = @JoinColumn(name = "quest_stage_id"),
+            inverseJoinColumns = @JoinColumn(name = "quest_next_stage_id")
+    )
+    private List<QuestStage> nextStages;
 }

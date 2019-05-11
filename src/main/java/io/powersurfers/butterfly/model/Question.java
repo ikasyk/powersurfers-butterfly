@@ -2,7 +2,6 @@ package io.powersurfers.butterfly.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -12,10 +11,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Question {
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "question_id")
-    private String id;
+    private Integer id;
 
     @Column(name = "quest_text")
     private String text;
