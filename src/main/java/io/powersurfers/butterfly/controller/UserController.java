@@ -15,8 +15,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    // Security - Level - 10000000
-    @GetMapping("/getAll")
+    @GetMapping("/")
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
