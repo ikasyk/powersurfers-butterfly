@@ -24,4 +24,8 @@ public class UserService {
         if (!optionalUser.isPresent()) throw new NoSuchUserException();
         return optionalUser.get();
     }
+
+    public void update(User user) {
+        userRepository.save(user);
+    }
 }

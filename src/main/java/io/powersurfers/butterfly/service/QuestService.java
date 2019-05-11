@@ -34,7 +34,7 @@ public class QuestService {
 
         Quest quest = getQuestById(id);
 
-        quest.getUsers().add(user);
-        questRepository.save(quest);
+        user.addQuest(quest);
+        userService.update(user);
     }
 }

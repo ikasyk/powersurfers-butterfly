@@ -1,10 +1,13 @@
 package io.powersurfers.butterfly.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -29,7 +32,28 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "quest_id")
     )
-    private List<Quest> quests;
+    @JsonIgnore
+    private Set<Quest> quests;
 
+    public void addQuest(Quest quest) {
+        if (quests == null) {
+            quests = new HashSet<>();
+        }
+        quests.add(quest);
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id.equals(user.id) &&
+                Objects.equals(uniqueGuid, user.uniqueGuid) &&
+                Objects.equals(login, user.login);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, uniqueGuid, login);
+    }
 }
