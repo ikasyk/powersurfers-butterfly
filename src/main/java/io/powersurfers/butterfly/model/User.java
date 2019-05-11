@@ -40,8 +40,8 @@ public class User {
     @org.hibernate.validator.constraints.URL
     private URL avatarUrl;
 
-    @Column(name = "user_expirience")
-    private int expirience;
+    @Column(name = "user_experience")
+    private int experience;
 
     public void addQuest(Quest quest) {
         if (quests == null) {

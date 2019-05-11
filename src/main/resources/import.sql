@@ -13,7 +13,7 @@ INSERT INTO quest_stage_to_stage (quest_stage_id, quest_next_stage_id) VALUES (1
 INSERT INTO quest_stage_to_stage (quest_stage_id, quest_next_stage_id) VALUES (1, 3);
 
 INSERT INTO quests (quest_id, quest_title, quest_description, quest_start_stage_id) VALUES (1, 'Ancient Kiev', 'Here you can learn about ancient city and history', 1);
-INSERT INTO quests (quest_id, quest_title, quest_description, quest_start_stage_id) VALUES (2, 'Mistery places', 'Learn about mistery places', 4);
+INSERT INTO quests (quest_id, quest_title, quest_description, quvest_start_stage_id) VALUES (2, 'Mistery places', 'Learn about mistery places', 4);
 
 -- UPDATE quest_stages SET quest_stage_quest_id = 1 WHERE quest_stage_id IN (1, 2, 3);
 -- UPDATE quest_stages SET quest_stage_quest_id = 2 WHERE quest_stage_id IN (4);
