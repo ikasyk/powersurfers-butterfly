@@ -6,10 +6,7 @@ import io.powersurfers.butterfly.dao.jsonview.Views;
 import io.powersurfers.butterfly.model.Quest;
 import io.powersurfers.butterfly.service.QuestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,8 +16,6 @@ public class QuestController {
 
     @Autowired
     QuestService questService;
-    @Autowired
-    private QuestRepository questsRepository;
 
     @GetMapping("/")
     @JsonView(Views.QuestField.class)
@@ -34,5 +29,8 @@ public class QuestController {
         return questService.getQuestById(id);
     }
 
-
+    @PutMapping("/{id}/user/{userId}")
+    public void assignToUser(@PathVariable Integer id, @PathVariable Integer userId) {
+        questService.assignToUser(id, userId);
+    }
 }

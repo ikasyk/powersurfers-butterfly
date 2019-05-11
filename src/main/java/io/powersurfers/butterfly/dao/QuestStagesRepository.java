@@ -9,6 +9,4 @@ import java.util.List;
 
 @Repository
 public interface QuestStagesRepository extends JpaRepository<QuestStage, Integer> {
-    @Query("select qs from QuestStage qs where qs.quest.id = ?1")
-    List<QuestStage> findByQuest(Integer id);
 }

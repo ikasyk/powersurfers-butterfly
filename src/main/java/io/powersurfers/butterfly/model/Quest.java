@@ -1,5 +1,6 @@
 package io.powersurfers.butterfly.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import io.powersurfers.butterfly.dao.jsonview.Views;
 import lombok.AllArgsConstructor;
@@ -29,8 +30,17 @@ public class Quest {
     @JsonView(Views.QuestField.class)
     private String description;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "quest_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "quest_start_stage_id")
     @JsonView(Views.QuestDetailField.class)
-    private List<QuestStage> stages;
+    private QuestStage startStage;
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(
+            name = "quest_assigned_user",
+            joinColumns = @JoinColumn(name = "quest_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<User> users;
 }
