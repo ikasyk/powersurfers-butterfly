@@ -1,5 +1,6 @@
 package io.powersurfers.butterfly.controller;
 
+import io.powersurfers.butterfly.exception.NoSuchUserException;
 import io.powersurfers.butterfly.model.User;
 import io.powersurfers.butterfly.dao.UserRepository;
 import io.powersurfers.butterfly.service.UserService;
@@ -25,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getUser(@PathVariable Integer id){
+    public User getUser(@PathVariable Integer id) throws NoSuchUserException {
         return userService.getUserById(id);
     }
 }
