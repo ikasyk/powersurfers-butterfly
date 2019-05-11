@@ -7,16 +7,16 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "questions")
 @Data
 @NoArgsConstructor
-public class User {
+public class Question {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(name = "user_id", unique = true)
+    @Column(name = "question_id")
     private String id;
 
-    @Column(name = "user_login")
-    private String login;
+    @Column(name = "quest_text")
+    private String text;
 }

@@ -8,14 +8,14 @@ import java.util.List;
 
 @Service
 public class QuestService {
-    @Autowired
-    QuestRepository questsRepository;
-
-    public List<Quest> getAll(){
-        return questsRepository.findAll();
-    }
-
-    public Quest getQuestById(Integer id){
-        return questsRepository.getOne(id);
-    }
+//    @Autowired
+//    QuestRepository questsRepository;
+//
+//    public List<Quest> getAll(){
+//        return questsRepository.findAll();
+//    }
+//
+//    public Quest getQuestById(Integer id){
+//        return questsRepository.getOne(id);
+//    }
 }

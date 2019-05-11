@@ -10,12 +10,12 @@ import java.util.List;
 
 @RestController("/stages")
 public class QuestStageController {
-
-    @Autowired
-
-
-    @GetMapping("/")
-    public List<QuestStage> questStageList(){
-        return questService.getAll();
-    }
+//
+//    @Autowired
+//
+//
+//    @GetMapping("/")
+//    public List<QuestStage> questStageList(){
+//        return questService.getAll();
+//    }
 }
