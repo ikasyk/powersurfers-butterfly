@@ -13,13 +13,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
-public class UsersController {
+public class UserController {
 
     @Autowired
     UserService userService;
 
     // Security god 10000
-    @GetMapping("/all")
+    @GetMapping("/")
     public List<User> getAllUsers() {
         return userService.getAll();
     }
