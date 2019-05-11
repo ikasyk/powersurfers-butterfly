@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class QuestService {
@@ -36,5 +37,14 @@ public class QuestService {
 
         user.addQuest(quest);
         userService.update(user);
+    }
+
+    public Set<User> getUsersFromQuest(Integer id) {
+        Quest quest = getQuestById(id);
+        try {
+            return quest.getUsers();
+        } catch (NullPointerException e) {
+            throw new NoSuchQuestException();
+        }
     }
 }

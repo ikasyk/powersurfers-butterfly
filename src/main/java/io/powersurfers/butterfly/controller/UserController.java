@@ -16,7 +16,6 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    // Security god 10000
     @GetMapping("/")
     public List<User> getAllUsers() {
         return userService.getAll();
