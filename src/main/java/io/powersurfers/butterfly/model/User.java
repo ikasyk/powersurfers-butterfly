@@ -40,6 +40,9 @@ public class User {
     @org.hibernate.validator.constraints.URL
     private URL avatarUrl;
 
+    @Column(name = "user_expirience")
+    private int expirience;
+
     public void addQuest(Quest quest) {
         if (quests == null) {
             quests = new HashSet<>();
