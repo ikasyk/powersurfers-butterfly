@@ -1,13 +1,13 @@
 package io.powersurfers.butterfly.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import io.powersurfers.butterfly.dao.QuestRepository;
 import io.powersurfers.butterfly.dao.jsonview.Views;
 import io.powersurfers.butterfly.model.Quest;
 import io.powersurfers.butterfly.model.User;
 import io.powersurfers.butterfly.service.QuestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,7 +39,7 @@ public class QuestController {
     }
 
     @GetMapping("/{id}/users")
-    public Set<User> getUsersFromQuest(@PathVariable Integer id){
+    public Set<User> getUsersFromQuest(@PathVariable Integer id) {
         return questService.getUsersFromQuest(id);
     }
 }

@@ -6,6 +6,7 @@ import io.powersurfers.butterfly.model.Quest;
 import io.powersurfers.butterfly.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,6 +31,7 @@ public class QuestService {
         return optionalQuest.get();
     }
 
+    @Transactional
     public void assignToUser(Integer id, Integer userId) {
         User user = userService.getUserById(userId);
 
