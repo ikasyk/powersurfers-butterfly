@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.net.URL;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -34,6 +35,10 @@ public class User {
     )
     @JsonIgnore
     private Set<Quest> quests;
+
+    @Column(name = "avatar_url")
+    @org.hibernate.validator.constraints.URL
+    private URL avatarUrl;
 
     public void addQuest(Quest quest) {
         if (quests == null) {
