@@ -10,16 +10,16 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-//@Configuration
-//@EnableSwagger2
+@Configuration
+@EnableSwagger2
 public class SwaggerConfig {
-//    private static final Set<String> DEFAULT_PRODUCES_AND_CONSUMES =
-//            new HashSet<String>(Arrays.asList("application/json"));
-//
-//    @Bean
-//    public Docket api() {
-//        return new Docket(DocumentationType.SWAGGER_2)
-//                .produces(DEFAULT_PRODUCES_AND_CONSUMES)
-//                .consumes(DEFAULT_PRODUCES_AND_CONSUMES);
-//    }
+    private static final Set<String> DEFAULT_PRODUCES_AND_CONSUMES =
+            new HashSet<String>(Arrays.asList("application/json"));
+
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .produces(DEFAULT_PRODUCES_AND_CONSUMES)
+                .consumes(DEFAULT_PRODUCES_AND_CONSUMES);
+    }
 }
