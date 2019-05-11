@@ -1,23 +1,21 @@
 package io.powersurfers.butterfly.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "quest_stages")
 @Data
 @NoArgsConstructor
-public class User {
+@AllArgsConstructor
+public class QuestStage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id", unique = true)
+    @Column(name = "quest_stage_id")
     private Integer id;
 
-    @Column(name = "user_unique_guid")
-    private String uniqueGuid;
 
-    @Column(name = "user_login")
-    private String login;
 }
