@@ -19,7 +19,7 @@ public class UsersController {
     UserService userService;
 
     // Security god 10000
-    @GetMapping("/getAll")
+    @GetMapping("/all")
     public List<User> getAllUsers() {
         return userService.getAll();
     }
